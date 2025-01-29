@@ -14,6 +14,19 @@ class Board:
         self.cell_size = self.width // 9
         self.font = pygame.font.Font(None, 40)
 
+    def update_board(self):
+        self.board = board = np.array([
+        [0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 2, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 4, 0, 0, 0, 0, 0],
+        [0, 0, 0, 5, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 7, 0, 0, 0, 0, 0],
+        [0, 0, 0, 8, 0, 0, 0, 0, 0],
+        [0, 0, 0, 9, 0, 0, 0, 0, 0]
+    ])
+
     def draw(self, window):
         window.fill((255, 255, 255))
         self.draw_grid(window)
@@ -36,7 +49,7 @@ class Board:
                     x = j * self.cell_size + (self.cell_size // 3)
                     y = i * self.cell_size + (self.cell_size // 3)
                     window.blit(number, (x, y))
-    
+
     def run(self):
         window = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("Sudoku")
@@ -46,6 +59,7 @@ class Board:
                 if event.type == pygame.QUIT:
                     running = False
             self.draw(window)
+            self.update_board()
             pygame.display.update()
 
 
