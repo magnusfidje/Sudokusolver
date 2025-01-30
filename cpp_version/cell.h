@@ -14,17 +14,19 @@ class Cell {
     private:
         int value;
         set<int> domain;
+        vector<int> position;
+
     public:
+
         Cell();
-        Cell(int value);
-        Cell(int value, set<int> domain);
+        Cell(int value, vector<int> position);
 
         int get_value() const {return value;};
         void set_value(int value) {this->value = value;};
         set<int> get_domain() const {return domain;};
         void remove_from_domain(int value);
+        vector<int> get_position() const {return position;};
     
-
 };
 
 #endif // CELL_H
