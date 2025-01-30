@@ -30,7 +30,7 @@ To solve a different puzzle, modify the board array in main.py
     ])
 ```
 
-##Cpp Version
+### Cpp Version
 
 Compile and run:
 ```bash
