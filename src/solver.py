@@ -14,6 +14,7 @@ class Solver:
     def __init__(self, board):
         self.board = [[Cell(board[i][j], (i, j)) for j in range(9)] for i in range(9)]
         self.initialize_domains()
+        self.backtrack_count = 0
 
     def initialize_domains(self):
 
@@ -68,6 +69,7 @@ class Solver:
         return self.backtrack()
 
     def backtrack(self):
+        self.backtrack_count += 1
         pos, cell = self.get_mrv()
         if not pos:
             return True
