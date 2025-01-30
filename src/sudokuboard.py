@@ -14,18 +14,6 @@ class Board:
         self.cell_size = self.width // 9
         self.font = pygame.font.Font(None, 40)
 
-    def update_board(self):
-        self.board = board = np.array([
-        [0, 0, 0, 1, 0, 0, 0, 0, 0],
-        [0, 0, 0, 2, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 4, 0, 0, 0, 0, 0],
-        [0, 0, 0, 5, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 7, 0, 0, 0, 0, 0],
-        [0, 0, 0, 8, 0, 0, 0, 0, 0],
-        [0, 0, 0, 9, 0, 0, 0, 0, 0]
-    ])
 
     def draw(self, window):
         window.fill((255, 255, 255))
@@ -44,8 +32,9 @@ class Board:
     def draw_numbers(self, window):
         for i in range(self.rows):
             for j in range(self.cols):
-                if self.board[i][j] != 0:
-                    number = self.font.render(str(self.board[i][j]), True, (0, 0, 0))
+                cell = self.board[i][j]
+                if cell.value != 0:
+                    number = self.font.render(str(cell.value), True, (0, 0, 0))
                     x = j * self.cell_size + (self.cell_size // 3)
                     y = i * self.cell_size + (self.cell_size // 3)
                     window.blit(number, (x, y))
@@ -59,7 +48,6 @@ class Board:
                 if event.type == pygame.QUIT:
                     running = False
             self.draw(window)
-            self.update_board()
             pygame.display.update()
 
 
