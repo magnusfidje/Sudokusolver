@@ -1,13 +1,22 @@
-This is a sudoku solver. The python version has a visual solution while the c++ version only has text format solutions.
+# Sudoku Solver
 
-Python version can be runned from main.py.
+A Sudoku solver implemented in both Python and C++, using CSP (Constraint Satisfaction Problem) backtracking algorithm with MRV (Minimum Remaining Values) heuristics.
 
-Cpp version can be compiled and run.
+## Features
+- Python version includes visual solution display
+- C++ version provides text-based output
+- Both implementations solve Sudoku puzzles using efficient backtracking
 
-In both versions you have to manually change the sudoku in code to the puzzel you want to solve.
-For python this is done in main.py:
+## Usage
 
+### Python Version
+Run the solver:
+```bash
+python main.py
+```
 
+To solve a different puzzle, modify the board array in main.py
+```
     board = np.array([
         [1, 0, 0, 0, 0, 7, 0, 9, 0],
         [0, 3, 0, 0, 2, 0, 0, 0, 8],
@@ -19,9 +28,17 @@ For python this is done in main.py:
         [0, 4, 0, 0, 0, 0, 0, 0, 7],
         [0, 0, 7, 0, 0, 0, 3, 0, 0]
     ])
+```
 
+##Cpp Version
+
+Compile and run:
+```bash
+clang++ driver.cpp solver.cpp cell.cpp -std=c++11 -o sudoku
+./sudoku
+```
 In cpp, you can change the board in driver.cpp:
-
+```
     vector<vector<int>> board = {
         {1, 0, 0, 0, 0, 7, 0, 9, 0},
         {0, 3, 0, 0, 2, 0, 0, 0, 8},
@@ -33,3 +50,5 @@ In cpp, you can change the board in driver.cpp:
         {0, 4, 0, 0, 0, 0, 0, 0, 7},
         {0, 0, 7, 0, 0, 0, 3, 0, 0}
         };
+```
+
